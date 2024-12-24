@@ -1,0 +1,7 @@
+[
+  {
+    "name": "Actions PR Update",
+    "description": "Github Action that updates all PRs when there's new commits in the base branch.",
+    "url": "https://github.com/DiegoRamil/actions-pr-auto-update"
+  }
+]
