@@ -9,13 +9,12 @@ import Experience from "@/components/experience.astro";
 import Contact from "@/components/contact.astro";
 import Exit from "@/components/exit.astro";
 import Layout from "@/layouts/layout.astro";
-import '@/styles/globals.css'
 ---
 
 <Layout>
   <div class="min-h-screen bg-black">
     <Terminal client:load>
-      <section class="px-4">
+      <section class="px-4 flex flex-col gap-10">
         <WhoAmI />
         <CurrentDirectory />
         <CurrentWork />
