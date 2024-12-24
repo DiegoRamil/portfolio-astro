@@ -1,0 +1,29 @@
+---
+import Terminal from "@/components/terminal.jsx";
+import { Toaster } from "@/components/ui/toaster.jsx";
+import Projects from "@/components/projects.jsx";
+import WhoAmI from "@/components/who_am_i.astro";
+import CurrentDirectory from "@/components/current_directory.astro";
+import CurrentWork from "@/components/current_work.astro";
+import Experience from "@/components/experience.astro";
+import Contact from "@/components/contact.astro";
+import Exit from "@/components/exit.astro";
+import Layout from "@/layouts/layout.astro";
+---
+
+<Layout>
+  <div class="min-h-screen bg-black">
+    <Terminal client:load>
+      <section class="px-4">
+        <WhoAmI />
+        <CurrentDirectory />
+        <CurrentWork />
+        <Experience />
+        <Projects />
+        <Contact />
+        <Exit />
+      </section>
+    </Terminal>
+    <Toaster client:load />
+  </div>
+</Layout>

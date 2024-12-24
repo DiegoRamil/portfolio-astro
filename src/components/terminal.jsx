@@ -1,21 +1,17 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import React from "react";
 import {
-  handleClose,
   handleFullScreen,
   handleMinimize,
+  handleClose,
 } from "@/functions/top_buttons";
 
-interface TerminalProps {
-  children: React.ReactNode;
-}
+import { useToast } from "@/hooks/use-toast";
 
-const DELAY_COMPONENTS = 300;
+const DELAY_COMPONENTS = 200;
 
-export function Terminal({ children }: TerminalProps) {
-  const [content, setContent] = useState<React.ReactNode[]>([]);
+const Terminal = ({ children }) => {
+  const [content, setContent] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -31,20 +27,22 @@ export function Terminal({ children }: TerminalProps) {
     }
   }, [children, currentIndex]);
 
+  const { toast } = useToast();
+
   return (
     <div className="p-4 bg-black text-green-500 min-h-screen">
       <div className="mb-4 flex items-center">
         <button
           className="w-3 h-3 rounded-full bg-red-500 mr-2"
-          onClick={handleClose}
+          onClick={() => handleClose()}
         ></button>
         <button
           className="w-3 h-3 rounded-full bg-yellow-500 mr-2"
-          onClick={handleMinimize}
+          onClick={() => handleMinimize(toast)}
         ></button>
         <button
           className="w-3 h-3 rounded-full bg-green-500"
-          onClick={handleFullScreen}
+          onClick={() => handleFullScreen()}
         ></button>
       </div>
       <div className="overflow-hidden">{content}</div>
@@ -53,4 +51,6 @@ export function Terminal({ children }: TerminalProps) {
       )}
     </div>
   );
-}
+};
+
+export default Terminal;

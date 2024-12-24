@@ -1,0 +1,20 @@
+---
+import "@/assets/globals.css";
+
+export const metadata = {
+  title: "Diego's Portfolio",
+  description: "A Linux terminal-inspired portfolio",
+  keywords: "portfolio, Linux, terminal, developer, projects",
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content={metadata.title}>
+    <meta name="description" content={metadata.description}>
+    <meta name="keywords" content={metadata.description}>
+  </head>
+  <body class="bg-black text-green-500 font-mono"><slot /></body>
+</html>

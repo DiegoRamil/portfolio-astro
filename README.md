@@ -4,7 +4,6 @@
 
 - Astro
 - React
-- TypeScript
 - Tailwind CSS
 
 ## Instalación
@@ -47,7 +46,7 @@ Una vez que la aplicación esté en funcionamiento, puedes navegar a `http://loc
 
 ## Funcionalidades a hacer
 
-- [] Cambiar el favicon.ico.
-- [] Crear una GH Action para actualizar automáticamente cada cierto tiempo los proyectos destacados.
-- [] Añadir las redes sociales al componente de footer.
-- [] Añadir un toaster cuando se clicka en el minimizar.
+- [ ] Cambiar el favicon.ico.
+- [ ] Crear una GH Action para actualizar automáticamente cada cierto tiempo los proyectos destacados.
+- [ ] Añadir las redes sociales al componente de footer.
+- [x] Añadir un toaster cuando se clicka en el minimizar.

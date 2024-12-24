@@ -10,7 +10,12 @@ const handleClose = () => {
   window.close();
 };
 
-const handleMinimize = () => {
+const handleMinimize = (toast) => {
+  toast({
+    title: "Error",
+    description: "There's no way to minimize a window in the browser.",
+  });
+
   // there's no way to minimize a window in the browser; with electron we can achieve this.
 };
 

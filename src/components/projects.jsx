@@ -1,10 +1,10 @@
 import projects from "@/public/projects.json";
-import { TerminalLine } from "./terminal-line";
+import TerminalLine from "@/components/terminal-line";
 
-export function Projects() {
+const Projects = () => {
   return (
     <section className="mb-4">
-      <TerminalLine prompt="ls -l projects/">
+      <TerminalLine prompt="ls -l projects/" className="">
         {projects.map((project, index) => (
           <div key={index} className="mb-2">
             <span className="text-yellow-500">{project.name}</span> -{" "}
@@ -22,4 +22,6 @@ export function Projects() {
       </TerminalLine>
     </section>
   );
-}
+};
+
+export default Projects;

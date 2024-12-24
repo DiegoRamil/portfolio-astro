@@ -1,17 +1,4 @@
-type Base = {
-  name: string;
-};
-type Experience = {
-  date: string;
-} & Base;
-
-type Contact = {
-  url: string;
-} & Base;
-
-type DataProps = (Experience | Contact)[];
-
-export default function JsonRenderer({ data }: { data: DataProps }) {
+const JsonRenderer = ({ data }) => {
   return (
     <p>
       [
@@ -35,4 +22,6 @@ export default function JsonRenderer({ data }: { data: DataProps }) {
       ]
     </p>
   );
-}
+};
+
+export default JsonRenderer;
