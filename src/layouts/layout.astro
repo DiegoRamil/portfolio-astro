@@ -1,5 +1,6 @@
 ---
 import '@/styles/globals.css'
+import Analytics from '@vercel/analytics/astro'
 
 export const metadata = {
   title: "Diego's Portfolio",
@@ -16,5 +17,8 @@ export const metadata = {
     <meta name="description" content={metadata.description}>
     <meta name="keywords" content={metadata.description}>
   </head>
-  <body class="bg-black text-green-500 font-mono"><slot /></body>
+  <body class="bg-black text-green-500 font-mono">
+    <slot />
+    <Analytics />
+  </body>
 </html>
