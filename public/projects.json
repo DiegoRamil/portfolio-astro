@@ -3,5 +3,10 @@
     "name": "Actions PR Update",
     "description": "Github Action that updates all PRs when there are new commits in the base branch.",
     "url": "https://github.com/DiegoRamil/actions-pr-auto-update"
+  },
+  {
+    "name": "Pihole Nodes Sync",
+    "description": "Project to sync Pihole nodes from a central server making it a high available DNS Server.",
+    "url": "https://github.com/DiegoRamil/pihole-nodes-sync"
   }
 ]
