@@ -2,9 +2,13 @@
 import '@/styles/globals.css'
 
 export const metadata = {
-  title: "Diego's Portfolio",
-  description: "A Linux terminal-inspired portfolio",
-  keywords: "portfolio, Linux, terminal, developer, projects",
+  title: "Diego Ramil | Linux Terminal-Inspired Portfolio",
+  description: "Explore Diego Ramil's developer portfolio inspired by the Linux terminal. Discover projects, skills, and contact information.",
+  keywords: "Diego Ramil, portfolio, Linux, terminal, developer, web developer, projects, open source, software engineer, frontend, backend, JavaScript, TypeScript, Astro, React",
+  author: "Diego Ramil",
+  url: "https://diegoramil.com",
+  image: "/terminal.avif",
+  icon: '/favicon.ico'
 };
 ---
 
@@ -12,9 +16,22 @@ export const metadata = {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{metadata.title}</title>
     <meta name="title" content={metadata.title}>
     <meta name="description" content={metadata.description}>
-    <meta name="keywords" content={metadata.description}>
+    <meta name="keywords" content={metadata.keywords}>
+    <meta name="author" content={metadata.author}>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content={metadata.title}>
+    <meta property="og:description" content={metadata.description}>
+    <meta property="og:url" content={metadata.url}>
+    <meta property="og:image" content={metadata.image}>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={metadata.title}>
+    <meta name="twitter:description" content={metadata.description}>
+    <meta name="twitter:image" content={metadata.image}>
+    <link rel="canonical" href={metadata.url} />
+    <link rel="icon" href={metadata.icon} type="image/x-icon">
   </head>
   <body class="bg-black text-green-500 font-mono"><slot /></body>
 </html>
