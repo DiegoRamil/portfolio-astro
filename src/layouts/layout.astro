@@ -2,12 +2,12 @@
 import '@/styles/globals.css'
 
 export const metadata = {
-  title: "Diego Ramil | Linux Terminal-Inspired Portfolio",
-  description: "Explore Diego Ramil's developer portfolio inspired by the Linux terminal. Discover projects, skills, and contact information.",
-  keywords: "Diego Ramil, portfolio, Linux, terminal, developer, web developer, projects, open source, software engineer, frontend, backend, JavaScript, TypeScript, Astro, React",
+  title: "Diego Ramil - Software Engineer & Full Stack Developer Portfolio",
+  description: "Diego Ramil - Software Engineer specializing in web development. Explore my portfolio with projects in JavaScript, TypeScript, React, Astro, and more. Based in Spain, passionate about creating innovative solutions.",
+  keywords: "Diego Ramil, Software Engineer, Full Stack Developer, Web Developer, portfolio, JavaScript, TypeScript, React, Astro, Node.js, frontend, backend, Spain, developer portfolio, programming",
   author: "Diego Ramil",
   url: "https://diegoramil.com",
-  image: "/terminal.avif",
+  image: "https://diegoramil.com/terminal.avif",
   icon: '/favicon.ico'
 };
 ---
@@ -21,17 +21,57 @@ export const metadata = {
     <meta name="description" content={metadata.description}>
     <meta name="keywords" content={metadata.keywords}>
     <meta name="author" content={metadata.author}>
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#000000">
+    <meta name="image" content={metadata.image}>
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Diego Ramil Portfolio">
     <meta property="og:title" content={metadata.title}>
     <meta property="og:description" content={metadata.description}>
     <meta property="og:url" content={metadata.url}>
     <meta property="og:image" content={metadata.image}>
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@dieeee_">
     <meta name="twitter:title" content={metadata.title}>
     <meta name="twitter:description" content={metadata.description}>
     <meta name="twitter:image" content={metadata.image}>
     <link rel="canonical" href={metadata.url} />
     <link rel="icon" href={metadata.icon} type="image/x-icon">
+    <script is:inline type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Diego Ramil",
+        "url": "https://diegoramil.com",
+        "image": "https://diegoramil.com/terminal.avif",
+        "jobTitle": "Software Engineer",
+        "description": "Software Engineer specializing in web development with expertise in JavaScript, TypeScript, React, and modern web technologies",
+        "sameAs": [
+          "https://github.com/diegoramil",
+          "https://x.com/dieeee_",
+         "https://www.linkedin.com/in/diego-ramil-alvarez/"
+        ],
+        "knowsAbout": ["JavaScript", "TypeScript", "React", "Astro", "Node.js", "Web Development", "Full Stack Development"],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Landra Sistemas SL"
+        }
+      }
+    </script>
+    <script is:inline type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Diego Ramil Portfolio",
+        "url": "https://diegoramil.com",
+        "description": "Portfolio and professional website of Diego Ramil, Software Engineer",
+        "author": {
+          "@type": "Person",
+          "name": "Diego Ramil"
+        },
+        "inLanguage": "en"
+      }
+    </script>
   </head>
   <body class="bg-black text-green-500 font-mono"><slot /></body>
 </html>

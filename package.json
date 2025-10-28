@@ -9,27 +9,28 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.3.0",
-    "@astrojs/tailwind": "^6.0.2",
-    "@radix-ui/react-progress": "^1.1.1",
-    "@radix-ui/react-slot": "^1.1.1",
-    "@radix-ui/react-toast": "^1.2.4",
-    "@types/react": "^19.0.2",
-    "@types/react-dom": "^19.0.2",
-    "astro": "^5.14.4",
+    "@astrojs/react": "4.4.1",
+    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/tailwind": "6.0.2",
+    "@radix-ui/react-progress": "1.1.7",
+    "@radix-ui/react-slot": "1.2.3",
+    "@radix-ui/react-toast": "1.2.15",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "astro": "5.15.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.469.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "lucide-react": "0.548.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "postcss": "^8",
+    "postcss": "8.5.6",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5",
-    "wrangler": "^4.16.1"
+    "typescript": "5.9.3",
+    "wrangler": "4.45.1"
   }
 }
