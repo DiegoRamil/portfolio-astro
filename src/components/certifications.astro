@@ -1,0 +1,9 @@
+---
+import JsonRenderer from "./json_renderer";
+import TerminalLine from "@/components/terminal-line";
+import certifications from "@/public/certifications.json";
+---
+
+<TerminalLine prompt="cat certifications.json" className={""}>
+  <JsonRenderer data={certifications} />
+</TerminalLine>
