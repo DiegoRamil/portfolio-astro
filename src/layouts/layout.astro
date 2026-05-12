@@ -2,9 +2,9 @@
 import '@/styles/globals.css'
 
 export const metadata = {
-  title: "Diego Ramil Alvarez - Software Engineer & Full Stack Developer Portfolio",
-  description: "Diego Ramil Alvarez - Software Engineer specializing in web development. Explore my portfolio with projects in JavaScript, TypeScript, React, Astro, and more. Based in Spain, passionate about creating innovative solutions.",
-  keywords: "Diego Ramil Alvarez, Software Engineer, Full Stack Developer, Web Developer, portfolio, JavaScript, TypeScript, React, Astro, Node.js, frontend, backend, Spain, developer portfolio, programming",
+  title: "Diego Ramil Alvarez - Full Stack Web Developer in Spain",
+  description: "Official portfolio of Diego Ramil Alvarez, Full Stack Web Developer in Spain. Projects, experience, certifications and contact links.",
+  keywords: "Diego Ramil, Diego Ramil Alvarez, Full Stack Web Developer, Software Engineer, portfolio, JavaScript, TypeScript, React, Astro, Node.js, Spain",
   author: "Diego Ramil Alvarez",
   url: "https://diegoramil.com",
   image: "https://diegoramil.com/terminal.avif",
@@ -21,37 +21,43 @@ export const metadata = {
     <meta name="description" content={metadata.description}>
     <meta name="keywords" content={metadata.keywords}>
     <meta name="author" content={metadata.author}>
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="theme-color" content="#000000">
     <meta name="image" content={metadata.image}>
+    <meta name="application-name" content="Diego Ramil Alvarez Portfolio">
+    <meta name="apple-mobile-web-app-title" content="Diego Ramil Alvarez">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Diego Ramil Alvarez Portfolio">
     <meta property="og:title" content={metadata.title}>
     <meta property="og:description" content={metadata.description}>
     <meta property="og:url" content={metadata.url}>
     <meta property="og:image" content={metadata.image}>
+    <meta property="og:image:alt" content="Terminal-style portfolio website for Diego Ramil Alvarez">
+    <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:creator" content="@dieeee_">
     <meta name="twitter:title" content={metadata.title}>
     <meta name="twitter:description" content={metadata.description}>
     <meta name="twitter:image" content={metadata.image}>
+    <meta name="twitter:image:alt" content="Terminal-style portfolio website for Diego Ramil Alvarez">
     <link rel="canonical" href={metadata.url} />
     <link rel="icon" href={metadata.icon} type="image/x-icon">
+    <link rel="sitemap" href="/sitemap-index.xml" type="application/xml" />
     <script is:inline type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
+        "@id": "https://diegoramil.com/#person",
         "name": "Diego Ramil Alvarez",
         "url": "https://diegoramil.com",
         "image": "https://diegoramil.com/terminal.avif",
-        "jobTitle": "Software Engineer",
-        "description": "Software Engineer specializing in web development with expertise in JavaScript, TypeScript, React, and modern web technologies",
+        "jobTitle": "Full Stack Web Developer",
+        "description": "Full Stack Web Developer in Spain with experience in JavaScript, TypeScript, React, Astro, Node.js and modern web development.",
+        "nationality": "Spanish",
         "sameAs": [
-          "https://github.com/diegoramil",
-          "https://x.com/dieeee_",
-         "https://www.linkedin.com/in/diego-ramil-alvarez/"
+          "https://github.com/DiegoRamil",
+          "https://linkedin.com/in/diego-ramil-alvarez",
         ],
-        "knowsAbout": ["JavaScript", "TypeScript", "React", "Astro", "Node.js", "Web Development", "Full Stack Development"],
+        "knowsAbout": ["JavaScript", "TypeScript", "React", "Astro", "Node.js", "Web Development", "Full Stack Development", "Frontend Development", "Backend Development"],
         "worksFor": {
           "@type": "Organization",
           "name": "Landra Sistemas SL"
@@ -62,12 +68,18 @@ export const metadata = {
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": "https://diegoramil.com/#website",
         "name": "Diego Ramil Alvarez Portfolio",
         "url": "https://diegoramil.com",
-        "description": "Portfolio and professional website of Diego Ramil Alvarez, Software Engineer",
+        "description": "Official portfolio and professional website of Diego Ramil Alvarez, Full Stack Web Developer.",
         "author": {
           "@type": "Person",
+          "@id": "https://diegoramil.com/#person",
           "name": "Diego Ramil Alvarez"
+        },
+        "publisher": {
+          "@type": "Person",
+          "@id": "https://diegoramil.com/#person"
         },
         "inLanguage": "en"
       }
