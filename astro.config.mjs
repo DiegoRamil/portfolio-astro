@@ -3,18 +3,20 @@ import { defineConfig } from "astro/config";
 
 import react from "@astrojs/react";
 
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://diegoramil.com',
-  integrations: [
-    react(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
-    sitemap(),
-  ],
+  site: "https://diegoramil.com",
+  integrations: [react(), sitemap()],
+  vite: {
+    plugins: [
+      tailwindcss({
+        // @ts-expect-error @tailwindcss/vite 4.2.1 types do not expose Astro's base-style option.
+        applyBaseStyles: false,
+      }),
+    ],
+  },
 });
