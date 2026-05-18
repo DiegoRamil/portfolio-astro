@@ -1,14 +1,107 @@
 ---
 import '@/styles/globals.css'
 
-export const metadata = {
+const metadata = {
   title: "Diego Ramil Alvarez - Full Stack Web Developer in Spain",
-  description: "Official portfolio of Diego Ramil Alvarez, Full Stack Web Developer in Spain. Projects, experience, certifications and contact links.",
+  description: "Official portfolio of Diego Ramil Alvarez, Full Stack Web Developer in Spain: experience, projects, AWS certification and contact links.",
   keywords: "Diego Ramil, Diego Ramil Alvarez, Full Stack Web Developer, Software Engineer, portfolio, JavaScript, TypeScript, React, Astro, Node.js, Spain",
   author: "Diego Ramil Alvarez",
-  url: "https://diegoramil.com",
+  url: "https://diegoramil.com/",
   image: "https://diegoramil.com/terminal.avif",
   icon: '/favicon.ico'
+};
+
+const {
+  title = metadata.title,
+  description = metadata.description,
+  canonicalUrl = metadata.url,
+  image = metadata.image,
+  robots = "index, follow, max-image-preview:large",
+  includeProfileSchema = true,
+} = Astro.props;
+
+const pageUrl = canonicalUrl ?? metadata.url;
+const personId = `${metadata.url}#person`;
+const profileId = `${metadata.url}#profile`;
+const websiteId = `${metadata.url}#website`;
+
+const schemaGraph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: "Diego Ramil Alvarez",
+      alternateName: "Diego Ramil",
+      url: metadata.url,
+      jobTitle: "Full Stack Web Developer",
+      description: "Diego Ramil Alvarez is a Full Stack Web Developer in Spain focused on JavaScript, TypeScript, React, Astro, Node.js and modern web development.",
+      nationality: "Spanish",
+      sameAs: [
+        "https://github.com/DiegoRamil",
+        "https://linkedin.com/in/diego-ramil-alvarez"
+      ],
+      knowsAbout: [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Astro",
+        "Node.js",
+        "Web Development",
+        "Full Stack Development",
+        "Frontend Development",
+        "Backend Development",
+        "AWS"
+      ],
+      worksFor: {
+        "@type": "Organization",
+        name: "Landra Sistemas SL",
+        url: "https://landrasistemas.es/"
+      },
+      hasCredential: {
+        "@type": "EducationalOccupationalCredential",
+        name: "AWS Certified Solutions Architect Associate",
+        credentialCategory: "certification",
+        url: "https://www.credly.com/badges/b29c8bfc-97bf-42a7-8270-a1904c76b443/",
+        recognizedBy: {
+          "@type": "Organization",
+          name: "Amazon Web Services"
+        }
+      },
+      mainEntityOfPage: {
+        "@id": profileId
+      }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": profileId,
+      name: "Diego Ramil Alvarez - Full Stack Web Developer",
+      url: metadata.url,
+      headline: "Full Stack Web Developer in Spain",
+      description: metadata.description,
+      inLanguage: "en",
+      isPartOf: {
+        "@id": websiteId
+      },
+      mainEntity: {
+        "@id": personId
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      name: "Diego Ramil Alvarez Portfolio",
+      url: metadata.url,
+      description: "Official portfolio and professional website of Diego Ramil Alvarez, Full Stack Web Developer.",
+      inLanguage: "en",
+      author: {
+        "@id": personId
+      },
+      publisher: {
+        "@id": personId
+      }
+    }
+  ]
 };
 ---
 
@@ -16,74 +109,33 @@ export const metadata = {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{metadata.title}</title>
-    <meta name="title" content={metadata.title}>
-    <meta name="description" content={metadata.description}>
+    <title>{title}</title>
+    <meta name="title" content={title}>
+    <meta name="description" content={description}>
     <meta name="keywords" content={metadata.keywords}>
     <meta name="author" content={metadata.author}>
-    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="robots" content={robots}>
     <meta name="theme-color" content="#000000">
-    <meta name="image" content={metadata.image}>
+    <meta name="image" content={image}>
     <meta name="application-name" content="Diego Ramil Alvarez Portfolio">
     <meta name="apple-mobile-web-app-title" content="Diego Ramil Alvarez">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Diego Ramil Alvarez Portfolio">
-    <meta property="og:title" content={metadata.title}>
-    <meta property="og:description" content={metadata.description}>
-    <meta property="og:url" content={metadata.url}>
-    <meta property="og:image" content={metadata.image}>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:url" content={pageUrl}>
+    <meta property="og:image" content={image}>
     <meta property="og:image:alt" content="Terminal-style portfolio website for Diego Ramil Alvarez">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content={metadata.title}>
-    <meta name="twitter:description" content={metadata.description}>
-    <meta name="twitter:image" content={metadata.image}>
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={image}>
     <meta name="twitter:image:alt" content="Terminal-style portfolio website for Diego Ramil Alvarez">
-    <link rel="canonical" href={metadata.url} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
     <link rel="icon" href={metadata.icon} type="image/x-icon">
     <link rel="sitemap" href="/sitemap-index.xml" type="application/xml" />
-    <script is:inline type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": "https://diegoramil.com/#person",
-        "name": "Diego Ramil Alvarez",
-        "url": "https://diegoramil.com",
-        "image": "https://diegoramil.com/terminal.avif",
-        "jobTitle": "Full Stack Web Developer",
-        "description": "Full Stack Web Developer in Spain with experience in JavaScript, TypeScript, React, Astro, Node.js and modern web development.",
-        "nationality": "Spanish",
-        "sameAs": [
-          "https://github.com/DiegoRamil",
-          "https://linkedin.com/in/diego-ramil-alvarez"
-        ],
-        "knowsAbout": ["JavaScript", "TypeScript", "React", "Astro", "Node.js", "Web Development", "Full Stack Development", "Frontend Development", "Backend Development"],
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Landra Sistemas SL"
-        }
-      }
-    </script>
-    <script is:inline type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": "https://diegoramil.com/#website",
-        "name": "Diego Ramil Alvarez Portfolio",
-        "url": "https://diegoramil.com",
-        "description": "Official portfolio and professional website of Diego Ramil Alvarez, Full Stack Web Developer.",
-        "author": {
-          "@type": "Person",
-          "@id": "https://diegoramil.com/#person",
-          "name": "Diego Ramil Alvarez"
-        },
-        "publisher": {
-          "@type": "Person",
-          "@id": "https://diegoramil.com/#person"
-        },
-        "inLanguage": "en"
-      }
-    </script>
+    {includeProfileSchema && <script type="application/ld+json" set:html={JSON.stringify(schemaGraph)} />}
   </head>
   <body class="bg-black text-green-500 font-mono"><slot /></body>
 </html>

@@ -1,26 +1,31 @@
+const formatJsonValue = (value) => {
+  if (typeof value === "string") return `'${value}'`;
+  return String(value);
+};
+
 const JsonRenderer = ({ data }) => {
   return (
-    <p>
+    <div>
       [
       <ol className="ml-4">
         {data?.map((item, idx) => (
           <li key={idx}>
             {"{ "}
             <br />
-            <p className="ml-5">
+            <div className="ml-5">
               {Object.entries(item).map(([key, value], i) => (
                 <span key={i}>
-                  {key}: {value}
+                  {key}: {formatJsonValue(value)}
                   <br />
                 </span>
               ))}
-            </p>
+            </div>
             {idx === data.length - 1 ? "}" : "},"}
           </li>
         ))}
       </ol>
       ]
-    </p>
+    </div>
   );
 };
 
