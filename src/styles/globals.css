@@ -15,14 +15,39 @@ body {
 
 @media (prefers-reduced-motion: no-preference) {
   .terminal-output > section > * {
-    animation: terminal-reveal 0.2s ease-out both;
+    animation: terminal-reveal 0.15s ease-out both;
   }
-  .terminal-output > section > :nth-child(2) { animation-delay: 150ms; }
-  .terminal-output > section > :nth-child(3) { animation-delay: 300ms; }
-  .terminal-output > section > :nth-child(4) { animation-delay: 450ms; }
-  .terminal-output > section > :nth-child(5) { animation-delay: 600ms; }
-  .terminal-output > section > :nth-child(6) { animation-delay: 750ms; }
-  .terminal-output > section > :nth-child(7) { animation-delay: 900ms; }
-  .terminal-output > section > :nth-child(8) { animation-delay: 1050ms; }
-  .terminal-output > section > :nth-child(9) { animation-delay: 1200ms; }
+  /* Short stagger so no line stays hidden long enough to delay LCP */
+  .terminal-output > section > :nth-child(2) { animation-delay: 30ms; }
+  .terminal-output > section > :nth-child(3) { animation-delay: 60ms; }
+  .terminal-output > section > :nth-child(4) { animation-delay: 90ms; }
+  .terminal-output > section > :nth-child(5) { animation-delay: 120ms; }
+  .terminal-output > section > :nth-child(6) { animation-delay: 150ms; }
+  .terminal-output > section > :nth-child(7) { animation-delay: 180ms; }
+  .terminal-output > section > :nth-child(8) { animation-delay: 210ms; }
+  .terminal-output > section > :nth-child(9) { animation-delay: 240ms; }
+  .terminal-output > section > :nth-child(10) { animation-delay: 270ms; }
+}
+
+/* 24px hit area around the 12px window dots */
+.terminal-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.terminal-output a {
+  overflow-wrap: anywhere;
+}
+
+/* Larger tap targets on touch screens without moving the underline */
+@media (pointer: coarse) {
+  .terminal-output a {
+    position: relative;
+  }
+  .terminal-output a::after {
+    content: "";
+    position: absolute;
+    inset: -12px -4px;
+  }
 }

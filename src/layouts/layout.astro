@@ -3,6 +3,8 @@ import '@/styles/globals.css'
 import contact from '@/data/contact.json';
 import currentWork from '@/data/current_work.json';
 import certifications from '@/data/certifications.json';
+import education from '@/data/education.json';
+import { getContentLastModified } from '@/lib/last-modified.mjs';
 
 const metadata = {
   title: "Diego Ramil Alvarez - Full Stack Web Developer in Spain",
@@ -25,7 +27,12 @@ const {
 const personId = `${metadata.url}#person`;
 const profileId = `${metadata.url}#profile`;
 const websiteId = `${metadata.url}#website`;
-const buildDate = new Date().toISOString();
+const contentLastModified = getContentLastModified().toISOString();
+// "30 January 2026" -> "2026-01-30" and "June 2025" -> "2025-06", parsed as UTC so the day never shifts
+const toIsoDate = (date) => {
+  const iso = new Date(`${date} UTC`).toISOString();
+  return /^\d{1,2} /.test(date) ? iso.slice(0, 10) : iso.slice(0, 7);
+};
 
 const schemaGraph = {
   "@context": "https://schema.org",
@@ -34,51 +41,66 @@ const schemaGraph = {
       "@type": "Person",
       "@id": personId,
       name: "Diego Ramil Alvarez",
-      alternateName: "Diego Ramil",
+      alternateName: ["Diego Ramil", "Diego Ramil Álvarez"],
       url: metadata.url,
       jobTitle: "Full Stack Web Developer",
-      description: "Diego Ramil Alvarez is a Full Stack Web Developer in Spain focused on JavaScript, TypeScript, React, Astro, Node.js and modern web development.",
-      image: metadata.image,
-      nationality: {
-        "@type": "Country",
-        name: "Spain"
-      },
+      description: "Diego Ramil Alvarez is a Full Stack Developer based in Narón, Galicia (Spain), focused on JavaScript, TypeScript, React, Astro, Node.js and modern web development.",
       address: {
         "@type": "PostalAddress",
+        addressLocality: "Narón",
+        addressRegion: "Galicia",
         addressCountry: "ES"
       },
-      sameAs: [
-        ...contact.map((profile) => profile.url),
-        "https://www.credly.com/users/diego-ramil-alvarez"
-      ],
+      sameAs: contact.map((profile) => profile.url),
       knowsAbout: [
         "JavaScript",
         "TypeScript",
         "React",
         "Astro",
         "Node.js",
-        "Web Development",
-        "Full Stack Development",
-        "Frontend Development",
-        "Backend Development",
+        "Spring Boot",
+        "Docker",
+        "Kubernetes",
+        "CI/CD",
+        "Domain-Driven Design",
+        "Scrum",
+        ".NET Framework",
+        "Microsoft SQL Server",
+        "Microsoft Azure",
         "AWS"
       ],
       worksFor: {
         "@type": "Organization",
         name: currentWork.name,
-        legalName: "Landra Sistemas SL",
         url: currentWork.url
       },
-      hasCredential: certifications.map((certification) => ({
-        "@type": "EducationalOccupationalCredential",
-        name: certification.name,
-        credentialCategory: "certification",
-        url: certification.url,
-        recognizedBy: {
-          "@type": "Organization",
-          name: "Amazon Web Services"
-        }
+      alumniOf: education.map((school) => ({
+        "@type": "EducationalOrganization",
+        name: school.name
       })),
+      hasCredential: [
+        ...certifications.map((certification) => ({
+          "@type": "EducationalOccupationalCredential",
+          name: certification.name,
+          credentialCategory: "certification",
+          url: certification.url,
+          validFrom: toIsoDate(certification.issued),
+          validUntil: certification.expires && toIsoDate(certification.expires),
+          recognizedBy: {
+            "@type": "Organization",
+            name: certification.issuer
+          }
+        })),
+        ...education.map((school) => ({
+          "@type": "EducationalOccupationalCredential",
+          name: school.degree,
+          credentialCategory: "degree",
+          recognizedBy: {
+            "@type": "EducationalOrganization",
+            name: school.name
+          }
+        }))
+      ],
       mainEntityOfPage: {
         "@id": profileId
       }
@@ -91,8 +113,13 @@ const schemaGraph = {
       headline: "Full Stack Web Developer in Spain",
       description: metadata.description,
       inLanguage: "en",
-      dateModified: buildDate,
-      primaryImageOfPage: metadata.image,
+      dateModified: contentLastModified,
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: metadata.image,
+        width: 1200,
+        height: 630
+      },
       isPartOf: {
         "@id": websiteId
       },

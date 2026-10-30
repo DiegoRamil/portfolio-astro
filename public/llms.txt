@@ -1,0 +1,24 @@
+# Diego Ramil Alvarez
+
+> Diego Ramil Alvarez (also written Diego Ramil Álvarez) is a Full Stack Developer based in Narón, Galicia (Spain), focused on JavaScript, TypeScript, React, Astro, Node.js and modern web development. AWS Certified Solutions Architect Associate.
+
+## Profile
+
+- [Portfolio](https://diegoramil.com/): experience, projects, certifications and contact links
+- Current work: Full Stack Developer at Landra Sistemas (July 2023 - present), with React, Spring Boot, Docker, Kubernetes, CI/CD, Domain-Driven Design and Scrum
+- Previous work: intern (dual vocational training) at Grupo Tecnológico Artabria (January 2023 - June 2023), with Microsoft SQL Server, Microsoft Azure, .NET Framework, jQuery, Bootstrap and Domain-Driven Design
+- Education: Higher Vocational Degree in Web Application Development, CIFP Rodolfo Ucha Piñeiro (2021 - 2023)
+- Certification: [AWS Certified Solutions Architect Associate](https://www.credly.com/badges/b29c8bfc-97bf-42a7-8270-a1904c76b443/), issued 30 January 2026, expires January 2029
+- Certification: Desarrollo Seguro ante Ciberataques (secure development against cyberattacks), Vitae Consultores, June 2025
+
+## Projects
+
+- [Pi-hole Nodes Sync](https://github.com/DiegoRamil/pihole-nodes-sync): syncs Pi-hole nodes from a central server, making it a highly available DNS server
+- [Portfolio](https://github.com/DiegoRamil/portfolio-astro): this website, built with Astro and Tailwind CSS
+- [Actions PR Update](https://github.com/DiegoRamil/actions-pr-auto-update): fork of a GitHub Action that updates open pull requests when the base branch changes
+
+## Contact
+
+- [GitHub](https://github.com/DiegoRamil)
+- [LinkedIn](https://www.linkedin.com/in/diego-ramil-alvarez/)
+- [Credly](https://www.credly.com/users/diego-ramil-alvarez)

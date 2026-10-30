@@ -5,10 +5,12 @@ import tailwindcss from "@tailwindcss/vite";
 
 import sitemap from "@astrojs/sitemap";
 
+import { getContentLastModified } from "./src/lib/last-modified.mjs";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://diegoramil.com",
-  integrations: [sitemap({ lastmod: new Date() })],
+  integrations: [sitemap({ lastmod: getContentLastModified() })],
   build: {
     inlineStylesheets: "always",
   },

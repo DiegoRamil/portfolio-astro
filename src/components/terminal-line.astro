@@ -1,8 +1,8 @@
 ---
-const { class: className = "", prompt = "$", heading } = Astro.props;
+const { class: className = "", prompt = "$", heading, ...attrs } = Astro.props;
 ---
 
-<div class={`mb-2 ${className}`}>
+<div class={`mb-2 ${className}`} {...attrs}>
   {
     heading ? (
       <h2 class="inline text-base font-normal text-blue-500">

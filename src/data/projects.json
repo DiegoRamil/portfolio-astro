@@ -1,12 +1,17 @@
 [
   {
-    "name": "Actions PR Update",
-    "description": "Github Action that updates all PRs when there are new commits in the base branch.",
-    "url": "https://github.com/DiegoRamil/actions-pr-auto-update"
+    "name": "Pi-hole Nodes Sync",
+    "description": "Project to sync Pi-hole nodes from a central server, making it a highly available DNS server.",
+    "url": "https://github.com/DiegoRamil/pihole-nodes-sync"
   },
   {
-    "name": "Pihole Nodes Sync",
-    "description": "Project to sync Pihole nodes from a central server making it a high available DNS Server.",
-    "url": "https://github.com/DiegoRamil/pihole-nodes-sync"
+    "name": "Portfolio",
+    "description": "This website, built with Astro and Tailwind CSS.",
+    "url": "https://github.com/DiegoRamil/portfolio-astro"
+  },
+  {
+    "name": "Actions PR Update",
+    "description": "Fork of a GitHub Action that updates open pull requests when there are new commits in the base branch.",
+    "url": "https://github.com/DiegoRamil/actions-pr-auto-update"
   }
 ]

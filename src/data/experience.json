@@ -1,4 +1,16 @@
 [
-  { "name": "Landra Sistemas", "date": "July 2023 - Present" },
-  { "name": "Grupo Tecnológico Artabria", "date": "January 2023 - June 2023" }
+  {
+    "name": "Landra Sistemas",
+    "role": "Full Stack Developer",
+    "date": "July 2023 - Present",
+    "location": "Narón, Galicia, Spain (hybrid)",
+    "stack": "React, Spring Boot, Docker, Kubernetes, CI/CD, Domain-Driven Design, Agile/Scrum"
+  },
+  {
+    "name": "Grupo Tecnológico Artabria",
+    "role": "Intern (dual vocational training)",
+    "date": "January 2023 - June 2023",
+    "location": "Ferrol, Galicia, Spain",
+    "stack": "Microsoft SQL Server, Microsoft Azure, .NET Framework, jQuery, Bootstrap, Domain-Driven Design"
+  }
 ]

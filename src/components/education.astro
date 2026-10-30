@@ -1,0 +1,9 @@
+---
+import JsonRenderer from "@/components/json_renderer.astro";
+import TerminalLine from "@/components/terminal-line.astro";
+import education from "@/data/education.json";
+---
+
+<TerminalLine prompt="cat education.json" heading="Education">
+  <JsonRenderer data={education} />
+</TerminalLine>
