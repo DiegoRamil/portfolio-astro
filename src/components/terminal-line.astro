@@ -1,0 +1,17 @@
+---
+const { class: className = "", prompt = "$", heading } = Astro.props;
+---
+
+<div class={`mb-2 ${className}`}>
+  {
+    heading ? (
+      <h2 class="inline text-base font-normal text-blue-500">
+        <span class="sr-only">{heading}: </span>
+        {prompt}
+      </h2>
+    ) : (
+      <span class="text-blue-500">{prompt}</span>
+    )
+  }{" "}
+  <slot />
+</div>
