@@ -1,9 +1,9 @@
 ---
 import JsonRenderer from "./json_renderer";
 import TerminalLine from "@/components/terminal-line";
-import experience from "@/public/experience.json";
+import experience from "@/data/experience.json";
 ---
 
-<TerminalLine prompt="cat experience.json" className={""}>
+<TerminalLine prompt="cat experience.json" heading="Experience">
   <JsonRenderer data={experience} />
 </TerminalLine>

@@ -1,14 +1,16 @@
 ---
 import '@/styles/globals.css'
+import contact from '@/data/contact.json';
+import currentWork from '@/data/current_work.json';
+import certifications from '@/data/certifications.json';
 
 const metadata = {
   title: "Diego Ramil Alvarez - Full Stack Web Developer in Spain",
   description: "Official portfolio of Diego Ramil Alvarez, Full Stack Web Developer in Spain: experience, projects, AWS certification and contact links.",
-  keywords: "Diego Ramil, Diego Ramil Alvarez, Full Stack Web Developer, Software Engineer, portfolio, JavaScript, TypeScript, React, Astro, Node.js, Spain",
   author: "Diego Ramil Alvarez",
   url: "https://diegoramil.com/",
-  image: "https://diegoramil.com/terminal.avif",
-  icon: '/favicon.ico'
+  image: "https://diegoramil.com/og.png",
+  imageAlt: "Diego Ramil Alvarez - Full Stack Web Developer in Spain, terminal-style portfolio card",
 };
 
 const {
@@ -20,10 +22,10 @@ const {
   includeProfileSchema = true,
 } = Astro.props;
 
-const pageUrl = canonicalUrl ?? metadata.url;
 const personId = `${metadata.url}#person`;
 const profileId = `${metadata.url}#profile`;
 const websiteId = `${metadata.url}#website`;
+const buildDate = new Date().toISOString();
 
 const schemaGraph = {
   "@context": "https://schema.org",
@@ -36,10 +38,18 @@ const schemaGraph = {
       url: metadata.url,
       jobTitle: "Full Stack Web Developer",
       description: "Diego Ramil Alvarez is a Full Stack Web Developer in Spain focused on JavaScript, TypeScript, React, Astro, Node.js and modern web development.",
-      nationality: "Spanish",
+      image: metadata.image,
+      nationality: {
+        "@type": "Country",
+        name: "Spain"
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "ES"
+      },
       sameAs: [
-        "https://github.com/DiegoRamil",
-        "https://linkedin.com/in/diego-ramil-alvarez"
+        ...contact.map((profile) => profile.url),
+        "https://www.credly.com/users/diego-ramil-alvarez"
       ],
       knowsAbout: [
         "JavaScript",
@@ -55,19 +65,20 @@ const schemaGraph = {
       ],
       worksFor: {
         "@type": "Organization",
-        name: "Landra Sistemas SL",
-        url: "https://landrasistemas.es/"
+        name: currentWork.name,
+        legalName: "Landra Sistemas SL",
+        url: currentWork.url
       },
-      hasCredential: {
+      hasCredential: certifications.map((certification) => ({
         "@type": "EducationalOccupationalCredential",
-        name: "AWS Certified Solutions Architect Associate",
+        name: certification.name,
         credentialCategory: "certification",
-        url: "https://www.credly.com/badges/b29c8bfc-97bf-42a7-8270-a1904c76b443/",
+        url: certification.url,
         recognizedBy: {
           "@type": "Organization",
           name: "Amazon Web Services"
         }
-      },
+      })),
       mainEntityOfPage: {
         "@id": profileId
       }
@@ -80,6 +91,8 @@ const schemaGraph = {
       headline: "Full Stack Web Developer in Spain",
       description: metadata.description,
       inLanguage: "en",
+      dateModified: buildDate,
+      primaryImageOfPage: metadata.image,
       isPartOf: {
         "@id": websiteId
       },
@@ -110,31 +123,33 @@ const schemaGraph = {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{title}</title>
-    <meta name="title" content={title}>
     <meta name="description" content={description}>
-    <meta name="keywords" content={metadata.keywords}>
     <meta name="author" content={metadata.author}>
     <meta name="robots" content={robots}>
     <meta name="theme-color" content="#000000">
-    <meta name="image" content={image}>
     <meta name="application-name" content="Diego Ramil Alvarez Portfolio">
     <meta name="apple-mobile-web-app-title" content="Diego Ramil Alvarez">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Diego Ramil Alvarez Portfolio">
     <meta property="og:title" content={title}>
     <meta property="og:description" content={description}>
-    <meta property="og:url" content={pageUrl}>
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl}>}
     <meta property="og:image" content={image}>
-    <meta property="og:image:alt" content="Terminal-style portfolio website for Diego Ramil Alvarez">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content={metadata.imageAlt}>
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content={title}>
     <meta name="twitter:description" content={description}>
     <meta name="twitter:image" content={image}>
-    <meta name="twitter:image:alt" content="Terminal-style portfolio website for Diego Ramil Alvarez">
+    <meta name="twitter:image:alt" content={metadata.imageAlt}>
     {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-    <link rel="icon" href={metadata.icon} type="image/x-icon">
-    <link rel="sitemap" href="/sitemap-index.xml" type="application/xml" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
     {includeProfileSchema && <script type="application/ld+json" set:html={JSON.stringify(schemaGraph)} />}
   </head>
   <body class="bg-black text-green-500 font-mono"><slot /></body>

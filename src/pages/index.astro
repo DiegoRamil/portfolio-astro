@@ -1,8 +1,8 @@
 ---
-import Terminal from "@/components/terminal.jsx";
-import { Toaster } from "@/components/ui/toaster.jsx";
+import Terminal from "@/components/terminal.astro";
 import Projects from "@/components/projects.jsx";
 import WhoAmI from "@/components/who_am_i.astro";
+import About from "@/components/about.astro";
 import CurrentDirectory from "@/components/current_directory.astro";
 import CurrentWork from "@/components/current_work.astro";
 import Experience from "@/components/experience.astro";
@@ -15,9 +15,10 @@ import Layout from "@/layouts/layout.astro";
 <Layout>
   <div class="min-h-screen bg-black">
     <main>
-      <Terminal client:load>
+      <Terminal>
         <section class="px-4 flex flex-col gap-10" aria-label="Diego Ramil Alvarez portfolio terminal">
           <WhoAmI />
+          <About />
           <CurrentDirectory />
           <CurrentWork />
           <Certifications />
@@ -28,6 +29,5 @@ import Layout from "@/layouts/layout.astro";
         </section>
       </Terminal>
     </main>
-    <Toaster client:load />
   </div>
 </Layout>

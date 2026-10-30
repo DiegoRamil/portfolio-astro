@@ -10,7 +10,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://diegoramil.com",
-  integrations: [react(), sitemap()],
+  integrations: [react(), sitemap({ lastmod: new Date() })],
   vite: {
     plugins: [
       tailwindcss({

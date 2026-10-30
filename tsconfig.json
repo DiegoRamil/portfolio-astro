@@ -5,7 +5,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@/public/*": ["../public/*"],
+      "@/data/*": ["data/*"],
       "@/*": ["*"]
     },
     "jsx": "react-jsx",

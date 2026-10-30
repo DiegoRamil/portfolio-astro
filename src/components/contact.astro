@@ -1,10 +1,9 @@
 ---
 import JsonRenderer from "./json_renderer";
 import TerminalLine from "@/components/terminal-line";
-import contact from "@/public/contact.json";
-// !TODO: meter las redes sociales y el github
+import contact from "@/data/contact.json";
 ---
 
-    <TerminalLine prompt="cat contact.json">
-      <JsonRenderer data={contact} />
-    </TerminalLine>
+<TerminalLine prompt="cat contact.json" heading="Contact">
+  <JsonRenderer data={contact} linkRel="me noopener" />
+</TerminalLine>
