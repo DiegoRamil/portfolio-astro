@@ -10,13 +10,13 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",
-    "@tailwindcss/vite": "4.3.3",
-    "astro": "7.4.2"
+    "@tailwindcss/vite": "4.3.5",
+    "astro": "7.4.8"
   },
   "devDependencies": {
-    "@types/node": "26.6.5",
-    "tailwindcss": "4.3.3",
+    "@types/node": "26.6.6",
+    "tailwindcss": "4.3.5",
     "typescript": "7.0.2",
-    "wrangler": "4.154.0"
+    "wrangler": "4.160.0"
   }
 }
