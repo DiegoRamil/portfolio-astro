@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-body {
-  font-family: sans-serif;
-}
-
 @keyframes terminal-reveal {
   from {
     opacity: 0;
